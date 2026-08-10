@@ -41,6 +41,8 @@ use super::tree::parse_tree;
 use super::tree::{TreeCapabilities, TreeView, parse_tree_with_capabilities};
 
 const SUPPORTED_PROTOCOL_VERSION: u64 = 11;
+const _: () =
+    assert!(SUPPORTED_PROTOCOL_VERSION >= 10, "per-surface client sizing requires protocol 10");
 const SURFACE_OVERFLOW_RETRY_DELAYS: [Duration; 3] =
     [Duration::from_millis(250), Duration::from_millis(500), Duration::from_secs(1)];
 const SURFACE_OVERFLOW_STABLE: Duration = Duration::from_secs(5);
